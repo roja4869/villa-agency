@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Ocean View Paradise",
+    "category": "Beachfront",
+    "location": "Malibu, CA",
+    "price": "$1,200",
+    "rating": 4.9,
+    "images": [
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "beds": 5,
+    "baths": 4,
+    "size": "4,500 sq ft",
+    "description": "Experience ultimate luxury in this stunning beachfront villa. Located in the heart of Malibu, this property offers breathtaking ocean views, a private infinity pool, and state-of-the-art smart home features.",
+    "amenities": ["Free Wifi", "Private Pool", "Smart Home", "Security 24/7", "Private Parking", "Breakfast Included"]
+  },
+  {
+    "id": 2,
+    "name": "Mountain Retreat",
+    "category": "Mountain",
+    "location": "Aspen, CO",
+    "price": "$950",
+    "rating": 4.8,
+    "images": [
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "beds": 4,
+    "baths": 3,
+    "size": "3,800 sq ft",
+    "description": "A cozy yet luxurious mountain retreat with stunning views of the Rockies. Features a private hot tub and gourmet kitchen.",
+    "amenities": ["Hot Tub", "Fireplace", "Ski-in Access", "Gourmet Kitchen", "High-speed Wifi"]
+  },
+  {
+    "id": 3,
+    "name": "Modern Zen Villa",
+    "category": "Modern",
+    "location": "Kyoto, Japan",
+    "price": "$1,500",
+    "rating": 5.0,
+    "images": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "beds": 3,
+    "baths": 3,
+    "size": "3,200 sq ft",
+    "description": "A minimalist masterpiece combining traditional Japanese aesthetics with ultra-modern design.",
+    "amenities": ["Zen Garden", "Tea Room", "Smart Glass", "Underfloor Heating"]
+  },
+  {
+    "id": 4,
+    "name": "Sunset Beach Villa",
+    "category": "Beachfront",
+    "location": "Bali, Indonesia",
+    "price": "$800",
+    "rating": 4.7,
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "beds": 4,
+    "baths": 4,
+    "size": "4,000 sq ft",
+    "description": "A tropical paradise right on the white sands of Bali. Experience stunning sunsets every evening.",
+    "amenities": ["Beach Access", "Outdoor Shower", "Daily Cleaning", "Private Chef"]
+  },
+  {
+    "id": 5,
+    "name": "Alpine Chalet",
+    "category": "Mountain",
+    "location": "Zermatt, Swiss",
+    "price": "$1,100",
+    "rating": 4.9,
+    "images": [
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "beds": 6,
+    "baths": 5,
+    "size": "5,500 sq ft",
+    "description": "Breathtaking views of the Matterhorn. The ultimate luxury ski lodge experience.",
+    "amenities": ["Sauna", "Wine Cellar", "Cinema Room", "Ski Storage"]
+  },
+  {
+    "id": 6,
+    "name": "Urban Glass House",
+    "category": "Modern",
+    "location": "London, UK",
+    "price": "$2,000",
+    "rating": 4.6,
+    "images": [
+      "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "beds": 2,
+    "baths": 2,
+    "size": "2,500 sq ft",
+    "description": "Modern urban living at its finest. Glass walls provide panoramic views of the London skyline.",
+    "amenities": ["Roof Terrace", "Concierge", "Gym Access", "Smart Lighting"]
+  }
+]

@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap');
+
+:root {
+  /* Color Palette - Radiant Red & Deep Water */
+  --primary: #1A0505;   /* Deep Maroon-Black */
+  --secondary: #2D0A0A; /* Darker Maroon */
+  --accent: #D4142D;    /* Radiant Crimson */
+  --water-blue: #7FB3C3; /* Soft Water Blue */
+  --text-pure: #FFFFFF;
+  --text-pink: #FFE4E1; /* Soft Pale Pink */
+  
+  /* Layout Fixes */
+  --header-height: 80px;
+  --content-top-offset: 100px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary) !important;
+  color: var(--text-pink);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Force Maroon Background on ALL Sections */
+section, .container-fluid, div[class*="page"], div[class*="wrapper"] {
+  background-color: var(--primary) !important;
+}
+
+/* Global Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-pure) !important;
+  font-family: 'Playfair Display', serif;
+}
+
+p, span, li, small {
+  color: var(--text-pink) !important;
+}
+
+.page-wrapper {
+  padding-top: var(--content-top-offset);
+  min-height: 100vh;
+}
+
+/* Crimson Glow Effect */
+.crimson-glow {
+  box-shadow: 0 0 20px rgba(212, 20, 45, 0.4);
+}
+
+.active-crimson {
+  color: var(--accent) !important;
+  text-shadow: 0 0 15px var(--accent);
+}
+
+/* Antigravity Floating Animations */
+@keyframes antigravityFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating {
+  animation: antigravityFloat 6s ease-in-out infinite;
+}
+
+.floating-fast {
+  animation: antigravityFloat 4s ease-in-out infinite;
+}
+
+.floating-slow {
+  animation: antigravityFloat 8s ease-in-out infinite;
+}
+
+/* Radiant Red Button */
+.btn-radiant {
+  background: var(--accent);
+  color: #FFFFFF !important;
+  padding: 14px 35px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(212, 20, 45, 0.3);
+}
+
+.btn-radiant:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px var(--accent);
+}
+
+.ice-blue-text {
+  color: var(--accent) !important;
+}
+
+/* Floating Animation */
+@keyframes antigravityFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating {
+  animation: antigravityFloat 6s ease-in-out infinite;
+}
+
+/* Ice Blue Button */
+.btn-ice {
+  background: var(--accent);
+  color: #000;
+  padding: 14px 35px;
+  border-radius: 6px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-ice:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+}
+
+.lime-sub {
+  color: var(--accent); /* Sub-headers to Cyber Lime */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* Antigravity Floating */
+@keyframes antigravityFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.floating {
+  animation: antigravityFloat 6s ease-in-out infinite;
+}
+
+/* Cyber Lime Button Glow */
+.btn-cyber {
+  background: var(--accent);
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-cyber:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(191, 255, 0, 0.6);
+}
+
+.gold-sub {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Floating Animation */
+@keyframes antigravityFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating {
+  animation: antigravityFloat 6s ease-in-out infinite;
+}
+
+/* Bold Gold Button */
+.btn-gold {
+  background: var(--accent);
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.btn-primary {
+  background: var(--grad-primary);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 51, 102, 0.3);
+}
+
+.btn-accent {
+  background: var(--grad-accent);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+  transition: var(--transition);
+}
+
+.btn-accent:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Animations */
+[data-aos] {
+  transition-duration: 800ms !important;
+}
+
+/* Navbar styles will be separate */
+/* Footer styles will be separate */
+
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}
