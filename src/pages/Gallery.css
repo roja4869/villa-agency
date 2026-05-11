@@ -1,94 +1,136 @@
-.gallery-masonry {
-  padding: 80px 0;
+.gallery-page {
+  background: var(--bg-cream);
 }
 
-.masonry {
-  columns: 3;
-  column-gap: 20px;
+.gallery-hero {
+  padding: 180px 0 100px;
+  background: var(--primary);
+  text-align: center;
 }
 
-.masonry-item {
+.gallery-hero h1 {
+  font-size: 4rem;
+  color: var(--white);
   margin-bottom: 20px;
+}
+
+.gallery-hero p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.gallery-grid-container {
+  padding: 100px 0;
+}
+
+.masonry-gallery {
+  column-count: 3;
+  column-gap: 30px;
+}
+
+.masonry-card {
+  break-inside: avoid;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+.masonry-img-wrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 15px;
-  cursor: pointer;
-  break-inside: avoid;
 }
 
-.masonry-item img {
+.masonry-img-wrapper img {
   width: 100%;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
 
-.masonry-item:hover img {
+.masonry-card:hover .masonry-img-wrapper img {
   transform: scale(1.1);
 }
 
-.overlay {
+.masonry-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 51, 102, 0.4);
+  background: rgba(7, 23, 57, 0.7);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: var(--transition);
+  color: var(--white);
 }
 
-.masonry-item:hover .overlay {
+.masonry-card:hover .masonry-overlay {
   opacity: 1;
 }
 
+.masonry-overlay h4 {
+  margin-top: 15px;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
 /* Lightbox */
-.lightbox {
+.gallery-lightbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
   z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
 }
 
 .lightbox-content {
   position: relative;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
+  z-index: 2001;
 }
 
 .lightbox-content img {
   max-width: 100%;
   max-height: 90vh;
   border-radius: 10px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
-.close-btn {
+.lightbox-close {
   position: absolute;
-  top: -40px;
+  top: -50px;
   right: 0;
   background: none;
-  color: white;
-  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
 }
 
 @media (max-width: 992px) {
-  .masonry {
-    columns: 2;
-  }
+  .masonry-gallery { column-count: 2; }
 }
 
-@media (max-width: 600px) {
-  .masonry {
-    columns: 1;
-  }
+@media (max-width: 576px) {
+  .masonry-gallery { column-count: 1; }
 }

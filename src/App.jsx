@@ -11,6 +11,7 @@ import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
+import Booking from './pages/Booking';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -32,11 +33,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/villas" element={<Villas />} />
-          <Route path="/villas/:id" element={<VillaDetails />} />
+          <Route path="/villa-details/:id" element={<VillaDetails />} />
           <Route path="/services" element={<Services />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/book-now" element={<Booking />} />
         </Routes>
       </AnimatePresence>
       <Footer />

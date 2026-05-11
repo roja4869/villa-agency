@@ -1,95 +1,236 @@
-.villas-content {
-  padding: 80px 0;
+.villas-page {
+  background: var(--bg-cream);
+  min-height: 100vh;
 }
 
-.filters-bar {
+.villas-hero {
+  padding: 180px 0 100px;
+  background: var(--primary);
+  text-align: center;
+}
+
+.villas-hero h1 {
+  font-size: 4.5rem;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.villas-hero p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.villas-container {
+  margin-top: -60px;
+  padding-bottom: 100px;
+}
+
+.villas-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  margin-bottom: 50px;
-  border-radius: 50px;
-  flex-wrap: wrap;
-  gap: 20px;
+  padding: 25px 40px;
+  border-radius: 20px;
+  background: white !important;
+  box-shadow: var(--shadow-premium);
+  margin-bottom: 60px;
 }
 
-.category-filters {
+.search-bar {
   display: flex;
+  align-items: center;
   gap: 15px;
+  flex: 1;
+  max-width: 400px;
 }
 
-.filter-btn {
-  padding: 8px 25px;
-  border-radius: 30px;
-  background: transparent;
-  color: var(--text-light);
+.search-bar input {
+  border: none;
+  background: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.tab-btn {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
   font-weight: 600;
-  border: 1px solid var(--glass-border);
+  color: var(--text-light);
+  background: transparent;
   transition: var(--transition);
 }
 
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--grad-accent);
-  color: white;
-  border-color: transparent;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.tab-btn:hover {
+  color: var(--primary);
   background: rgba(0, 0, 0, 0.05);
-  padding: 8px 20px;
-  border-radius: 30px;
-  width: 300px;
 }
 
-.search-box input {
-  background: none;
-  border: none;
-  outline: none;
-  width: 100%;
+.tab-btn.active {
+  background: var(--primary);
+  color: var(--white);
 }
 
 .villas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
-.villa-category {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--primary);
-  padding: 5px 15px;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 0.8rem;
+/* Reusing villa-card styles from Home.css or updating specifically */
+.villas-page .villa-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
 }
 
-.villa-card {
+.villas-page .villa-img {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
 }
 
-.villa-card .btn-accent {
+.villas-page .villa-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--grad-gold);
+  color: var(--primary);
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.heart-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.villas-page .villa-content {
+  padding: 30px;
+}
+
+.villa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.villa-price {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.villa-price span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.villas-page h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.villas-page h3:hover {
+  color: var(--accent);
+}
+
+.villas-page .villa-footer {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.villas-page .btn-gold {
   width: 100%;
-  margin-top: 10px;
+  text-align: center;
+}
+
+/* Loader */
+.villas-loader {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.luxury-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(212, 164, 55, 0.1);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.no-results {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.no-results h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.no-results p {
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1200px) {
+  .villas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 992px) {
+  .villas-controls {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  .search-bar { max-width: none; }
 }
 
 @media (max-width: 768px) {
-  .filters-bar {
-    border-radius: 20px;
-    padding: 20px;
-  }
-  .search-box {
-    width: 100%;
-  }
-  .category-filters {
-    overflow-x: auto;
-    width: 100%;
-    padding-bottom: 5px;
-  }
+  .villas-hero h1 { font-size: 3rem; }
+  .villas-grid { grid-template-columns: 1fr; }
+  .category-tabs { overflow-x: auto; padding-bottom: 5px; }
 }

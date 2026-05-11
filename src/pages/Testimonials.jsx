@@ -6,24 +6,24 @@ import './Testimonials.css';
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Alex Johnson",
-      role: "Business Traveler",
-      text: "The service was impeccable. The villa was even more beautiful than the pictures. Highly recommended for anyone seeking true luxury.",
+      name: "Arthur Sterling",
+      role: "Venture Capitalist",
+      text: "The Sapphire Bay Estate was beyond any expectation. The concierge service handled every detail of our event with absolute precision. A truly world-class experience.",
       rating: 5,
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
     },
     {
-      name: "Sarah Williams",
-      role: "Interior Designer",
-      text: "As a designer, I'm very picky about aesthetics. Every detail in the Modern Zen Villa was perfectly thought out. A masterpiece.",
+      name: "Elara Vance",
+      role: "Luxury Lifestyle Blogger",
+      text: "As someone who travels the world for a living, I can say Villa Agency represents the pinnacle of high-end property curation. The attention to detail is remarkable.",
       rating: 5,
       img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
     },
     {
-      name: "Michael Chen",
-      role: "Family Vacation",
-      text: "Our family had the most amazing time. The security and privacy provided gave us total peace of mind. We'll be back next year!",
-      rating: 4,
+      name: "Maximilian Thorne",
+      role: "CEO, Thorne Enterprises",
+      text: "Total privacy and impeccable security. For high-profile individuals, Villa Agency is the only choice when it comes to exclusive seasonal rentals.",
+      rating: 5,
       img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
     }
   ];
@@ -39,58 +39,73 @@ const Testimonials = () => {
   };
 
   useEffect(() => {
-    const timer = setInterval(nextReview, 5000);
+    const timer = setInterval(nextReview, 6000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <PageWrapper>
-      <div className="testimonials-page">
-        <section className="page-header">
+      <div className="testimonials-page page-fade-in">
+        <section className="testimonials-hero">
           <div className="container">
-            <h1 data-aos="fade-down">Client Testimonials</h1>
-            <p data-aos="fade-up">What our esteemed guests have to say</p>
+            <span className="badge-gold" data-aos="fade-down">Guest Experiences</span>
+            <h1 data-aos="fade-up">Client <span className="text-gold">Testimonials</span></h1>
+            <p data-aos="fade-up" data-aos-delay="200">The words of our esteemed guests speak volumes about our commitment to excellence.</p>
           </div>
         </section>
 
-        <section className="testimonials-carousel-section container">
-          <div className="carousel-container" data-aos="zoom-in">
-            <div className="review-card glass">
-              <Quote className="quote-icon" size={60} />
-              <div className="review-content">
-                <div className="stars">
+        <section className="testimonials-main container">
+          <div className="carousel-wrapper" data-aos="zoom-in">
+            <div className="main-testimonial-card glass">
+              <Quote className="testimonial-quote" size={80} strokeWidth={1} />
+              <div className="testimonial-content">
+                <div className="testimonial-stars">
                   {[...Array(reviews[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} size={20} fill="var(--accent)" color="var(--accent)" />
+                    <Star key={i} size={22} fill="var(--primary)" color="var(--primary)" />
                   ))}
                 </div>
-                <p className="review-text">"{reviews[currentIndex].text}"</p>
-                <div className="reviewer-info">
-                  <img src={reviews[currentIndex].img} alt={reviews[currentIndex].name} />
-                  <div>
+                <p className="testimonial-text">"{reviews[currentIndex].text}"</p>
+                <div className="testimonial-author">
+                  <div className="author-img-wrapper">
+                    <img src={reviews[currentIndex].img} alt={reviews[currentIndex].name} />
+                  </div>
+                  <div className="author-details">
                     <h4>{reviews[currentIndex].name}</h4>
                     <span>{reviews[currentIndex].role}</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="carousel-controls">
-              <button onClick={prevReview}><ChevronLeft size={30} /></button>
-              <button onClick={nextReview}><ChevronRight size={30} /></button>
+            <div className="testimonial-nav">
+              <button onClick={prevReview} className="nav-btn-luxury"><ChevronLeft size={24} /></button>
+              <div className="nav-dots">
+                {reviews.map((_, idx) => (
+                  <span key={idx} className={`dot ${currentIndex === idx ? 'active' : ''}`} onClick={() => setCurrentIndex(idx)}></span>
+                ))}
+              </div>
+              <button onClick={nextReview} className="nav-btn-luxury"><ChevronRight size={24} /></button>
             </div>
           </div>
         </section>
 
-        <section className="more-reviews container">
+        <section className="review-grid-section container section-padding">
           <div className="section-title">
-            <h2>Recent Reviews</h2>
+            <span className="badge-gold">Recent Feedback</span>
+            <h2 className="gold-underline">Client Reviews</h2>
           </div>
-          <div className="reviews-grid">
+          <div className="review-grid-luxury">
             {reviews.map((review, idx) => (
-              <div key={idx} className="small-review-card glass" data-aos="fade-up" data-aos-delay={idx * 100}>
-                <p>"{review.text.substring(0, 100)}..."</p>
-                <div className="reviewer-small">
+              <div key={idx} className="luxury-review-card" data-aos="fade-up" data-aos-delay={idx * 100}>
+                <div className="card-stars">
+                  {[...Array(review.rating)].map((_, i) => <Star key={i} size={14} fill="var(--primary)" color="var(--primary)" />)}
+                </div>
+                <p>"{review.text}"</p>
+                <div className="card-author">
                   <img src={review.img} alt={review.name} />
-                  <h5>{review.name}</h5>
+                  <div>
+                    <h5>{review.name}</h5>
+                    <span>Verified Guest</span>
+                  </div>
                 </div>
               </div>
             ))}

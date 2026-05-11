@@ -1,49 +1,53 @@
 import React from 'react';
 import PageWrapper from '../components/PageWrapper';
-import { Layout, Waves, Cpu, Shield, Car, Headphones, Paintbrush, Wifi } from 'lucide-react';
+import { Layout, Waves, Cpu, Shield, Car, Headphones, Paintbrush, Wifi, Key, Wine, Coffee, Utensils } from 'lucide-react';
 import './Services.css';
 
 const Services = () => {
   const services = [
-    { icon: <Paintbrush />, title: "Interior Design", desc: "Expert interior designers to customize your villa to your personal taste." },
-    { icon: <Waves />, title: "Swimming Pool", desc: "Crystal clear infinity pools with regular maintenance and cleaning services." },
-    { icon: <Cpu />, title: "Smart Home", desc: "Fully integrated smart home systems for lighting, climate, and entertainment." },
-    { icon: <Shield />, title: "Security 24/7", desc: "Professional security personnel and advanced surveillance systems." },
-    { icon: <Car />, title: "Private Parking", desc: "Spacious and secure parking facilities for multiple vehicles." },
-    { icon: <Headphones />, title: "24/7 Support", desc: "Dedicated concierge service available around the clock for any requests." },
-    { icon: <Wifi />, title: "High-Speed WiFi", desc: "Seamless fiber-optic internet connection throughout the entire property." },
-    { icon: <Layout />, title: "Property Management", desc: "Complete property management services to ensure your home is always ready." }
+    { icon: <Paintbrush />, title: "Interior Design", desc: "Expert interior designers to customize your villa to your personal taste and lifestyle." },
+    { icon: <Waves />, title: "Infinity Pools", desc: "Crystal clear infinity pools with regular maintenance and automated heating systems." },
+    { icon: <Cpu />, title: "Smart Living", desc: "Fully integrated smart home systems for climate, security, and cinematic entertainment." },
+    { icon: <Shield />, title: "Elite Security", desc: "Professional 24/7 security personnel and state-of-the-art biometric surveillance." },
+    { icon: <Car />, title: "Private Fleet", desc: "Secure multi-car galleries and access to our private chauffeur services." },
+    { icon: <Headphones />, title: "24/7 Concierge", desc: "Dedicated lifestyle managers available around the clock for any bespoke requests." },
+    { icon: <Utensils />, title: "Private Chef", desc: "World-class culinary experts available to prepare exquisite meals in your villa." },
+    { icon: <Key />, title: "Management", desc: "Comprehensive property management to ensure your estate is always in pristine condition." }
   ];
 
   return (
     <PageWrapper>
-      <div className="services-page">
-        <section className="page-header">
+      <div className="services-page page-fade-in">
+        <section className="services-hero">
           <div className="container">
-            <h1 data-aos="fade-down">Our Services</h1>
-            <p data-aos="fade-up">Exceptional care for an exceptional lifestyle</p>
+            <span className="badge-gold" data-aos="fade-down">Bespoke Excellence</span>
+            <h1 data-aos="fade-up">Exceptional <span className="text-gold">Services</span></h1>
+            <p data-aos="fade-up" data-aos-delay="200">We provide more than just a home; we provide an elevated lifestyle curated for the world's most discerning individuals.</p>
           </div>
         </section>
 
-        <section className="services-grid-section container">
+        <section className="services-grid-container container">
           <div className="services-grid">
             {services.map((service, index) => (
-              <div key={index} className="service-card glass" data-aos="fade-up" data-aos-delay={index * 100}>
-                <div className="service-icon">
-                  {service.icon}
+              <div key={index} className="service-card-luxury" data-aos="fade-up" data-aos-delay={index * 100}>
+                <div className="service-icon-wrapper">
+                  {React.cloneElement(service.icon, { size: 32, strokeWidth: 1.5 })}
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
+                <div className="service-hover-content">
+                  <span>Learn More</span>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="extra-cta container" data-aos="zoom-in">
-          <div className="cta-box glass">
-            <h2>Need a Custom Service?</h2>
-            <p>Our team is ready to accommodate any special requests you may have.</p>
-            <button className="btn-accent">Inquire Now</button>
+        <section className="bespoke-cta container">
+          <div className="bespoke-content glass" data-aos="zoom-in">
+            <h2>Bespoke Requirements?</h2>
+            <p>Our dedicated team is ready to accommodate any special requests, from private aviation to specialized event planning.</p>
+            <button className="btn-gold">Consult Our Team</button>
           </div>
         </section>
       </div>
