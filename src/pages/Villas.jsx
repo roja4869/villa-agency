@@ -22,12 +22,12 @@ const Villas = () => {
         console.error("Error fetching villas:", err);
         // Fallback data if backend is down for preview
         setVillas([
-          { id: 1, name: "Ocean View Paradise", location: "Malibu, California", price: "$1,200", rating: 4.9, category: "Beachfront", images: ["https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800"] },
-          { id: 2, name: "Mountain Retreat", location: "Aspen, Colorado", price: "$950", rating: 4.8, category: "Mountain", images: ["https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800"] },
-          { id: 3, name: "Modern Zen Villa", location: "Kyoto, Japan", price: "$1,500", rating: 5.0, category: "Modern", images: ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=800"] },
-          { id: 4, name: "Sapphire Bay Estate", location: "Greek Islands", price: "$2,500", rating: 4.9, category: "Beachfront", images: ["https://images.unsplash.com/photo-1602343168117-bb89fd026211?auto=format&fit=crop&q=80&w=800"] },
-          { id: 5, name: "Nordic Pine Villa", location: "Norway", price: "$1,800", rating: 4.7, category: "Mountain", images: ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800"] },
-          { id: 6, name: "Desert Oasis", location: "Palm Springs", price: "$1,100", rating: 4.8, category: "Modern", images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"] }
+          { id: 1, name: "Ocean View Paradise", location: "Malibu, California", price: "$1,200", rating: 4.9, category: "Beachfront", images: ["https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200"] },
+          { id: 2, name: "Mountain Retreat", location: "Aspen, Colorado", price: "$950", rating: 4.8, category: "Mountain", images: ["https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1200"] },
+          { id: 3, name: "Modern Zen Villa", location: "Kyoto, Japan", price: "$1,500", rating: 5.0, category: "Modern", images: ["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1200"] },
+          { id: 4, name: "Sapphire Bay Estate", location: "Greek Islands", price: "$2,500", rating: 4.9, category: "Beachfront", images: ["https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=1200"] },
+          { id: 5, name: "Nordic Pine Villa", location: "Norway", price: "$1,800", rating: 4.7, category: "Mountain", images: ["https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1200"] },
+          { id: 6, name: "Desert Oasis", location: "Palm Springs", price: "$1,100", rating: 4.8, category: "Modern", images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200"] }
         ]);
         setLoading(false);
       });

@@ -55,21 +55,21 @@
   },
   {
     "id": 4,
-    "name": "Sunset Beach Villa",
+    "name": "Sapphire Bay Estate",
     "category": "Beachfront",
-    "location": "Bali, Indonesia",
-    "price": "$800",
-    "rating": 4.7,
+    "location": "Greek Islands",
+    "price": "$2,500",
+    "rating": 4.9,
     "images": [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200"
+      "https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1602343168117-bb89fd026211?auto=format&fit=crop&q=80&w=1200"
     ],
-    "beds": 4,
-    "baths": 4,
-    "size": "4,000 sq ft",
-    "description": "A tropical paradise right on the white sands of Bali. Experience stunning sunsets every evening.",
-    "amenities": ["Beach Access", "Outdoor Shower", "Daily Cleaning", "Private Chef"]
+    "beds": 6,
+    "baths": 5,
+    "size": "5,200 sq ft",
+    "description": "A magnificent clifftop estate overlooking the crystal clear waters of the Aegean Sea. Sapphire Bay Estate offers ultimate seclusion and luxury with private beach access and world-class amenities.",
+    "amenities": ["Infinity Pool", "Private Beach", "Wine Cellar", "Helipad", "Chef Service"]
   },
   {
     "id": 5,

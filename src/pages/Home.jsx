@@ -13,7 +13,7 @@ const Home = () => {
       location: "Malibu, California",
       price: "$1,200",
       rating: 4.9,
-      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200",
       tag: "Featured"
     },
     {
@@ -22,7 +22,7 @@ const Home = () => {
       location: "Aspen, Colorado",
       price: "$950",
       rating: 4.8,
-      image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1200",
       tag: "Luxury"
     },
     {
@@ -31,7 +31,7 @@ const Home = () => {
       location: "Kyoto, Japan",
       price: "$1,500",
       rating: 5.0,
-      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=800",
+      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1200",
       tag: "Exclusive"
     }
   ];
