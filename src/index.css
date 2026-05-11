@@ -36,6 +36,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--white);
@@ -44,10 +48,54 @@ body {
   overflow-x: hidden;
 }
 
+/* Hero Background Utilities */
+.hero-with-bg {
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(7, 23, 57, 0.8), rgba(7, 23, 57, 0.6));
+  z-index: 2;
+}
+
+.hero-content-rel {
+  position: relative;
+  z-index: 10;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   color: var(--primary);
+}
+
+.hero-with-bg h1, 
+.hero-with-bg h2, 
+.hero-with-bg h3, 
+.hero-with-bg p {
+  color: var(--white) !important;
 }
 
 a {

@@ -46,8 +46,12 @@ const Testimonials = () => {
   return (
     <PageWrapper>
       <div className="testimonials-page page-fade-in">
-        <section className="testimonials-hero">
-          <div className="container">
+        <section className="testimonials-hero hero-with-bg">
+          <div className="hero-bg">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600" alt="Luxury Interior" />
+            <div className="hero-overlay-dark"></div>
+          </div>
+          <div className="container hero-content-rel">
             <span className="badge-gold" data-aos="fade-down">Guest Experiences</span>
             <h1 data-aos="fade-up">Client <span className="text-gold">Testimonials</span></h1>
             <p data-aos="fade-up" data-aos-delay="200">The words of our esteemed guests speak volumes about our commitment to excellence.</p>

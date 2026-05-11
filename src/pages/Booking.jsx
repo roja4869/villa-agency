@@ -30,8 +30,12 @@ const Booking = () => {
   return (
     <PageWrapper>
       <div className="booking-page page-fade-in">
-        <section className="booking-hero">
-          <div className="container">
+        <section className="booking-hero hero-with-bg">
+          <div className="hero-bg">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600" alt="Booking Background" />
+            <div className="hero-overlay-dark"></div>
+          </div>
+          <div className="container hero-content-rel">
             <span className="badge-gold" data-aos="fade-down">Reservations</span>
             <h1 data-aos="fade-up">Book Your <span className="text-gold">Stay</span></h1>
             <p data-aos="fade-up" data-aos-delay="200">Secure your place in paradise. Experience the world's most exclusive properties.</p>

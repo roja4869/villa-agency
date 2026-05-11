@@ -9,10 +9,10 @@ const Gallery = () => {
   const images = [
     { url: "https://images.unsplash.com/photo-1613490493576-7fde63acd811", size: "large", title: "Malibu Oceanfront" },
     { url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c", size: "small", title: "Modern Interior" },
-    { url: "https://images.unsplash.com/photo-1600607687940-c52af04657b3", size: "medium", title: "Greek Island Suite" },
+    { url: "https://images.unsplash.com/photo-1542718610-a1d656d1884c", size: "medium", title: "Greek Island Suite" },
     { url: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750", size: "large", title: "Luxury Poolside" },
-    { url: "https://images.unsplash.com/photo-1600566752355-35792bedcfea", size: "medium", title: "Penthouse View" },
-    { url: "https://images.unsplash.com/photo-1600585154542-630847ff76d7", size: "small", title: "Master Bedroom" },
+    { url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0", size: "medium", title: "Penthouse View" },
+    { url: "https://images.unsplash.com/photo-1560184897-ae75f418493e", size: "small", title: "Master Bedroom" },
     { url: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688", size: "large", title: "Nordic Retreat" },
     { url: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914", size: "medium", title: "Kyoto Zen Villa" },
   ];
@@ -20,8 +20,12 @@ const Gallery = () => {
   return (
     <PageWrapper>
       <div className="gallery-page page-fade-in">
-        <section className="gallery-hero">
-          <div className="container">
+        <section className="gallery-hero hero-with-bg">
+          <div className="hero-bg">
+            <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=1600" alt="Luxury Estates" />
+            <div className="hero-overlay-dark"></div>
+          </div>
+          <div className="container hero-content-rel">
             <span className="badge-gold" data-aos="fade-down">Visual Journey</span>
             <h1 data-aos="fade-up">Luxury <span className="text-gold">Portfolio</span></h1>
             <p data-aos="fade-up" data-aos-delay="200">A curated collection of the world's most exquisite properties captured through the lens.</p>

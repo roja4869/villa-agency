@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container container">
         <Link to="/" className="logo">
-          VILLA<span>AGENCY</span>
+          VILLA <span>AGENCY</span>
         </Link>
 
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>

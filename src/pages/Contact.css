@@ -3,9 +3,12 @@
 }
 
 .contact-hero {
-  padding: 180px 0 100px;
+  padding: 200px 0 120px;
   background: var(--primary);
   text-align: center;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
 }
 
 .contact-hero h1 {

@@ -27,8 +27,12 @@ const Contact = () => {
   return (
     <PageWrapper>
       <div className="contact-page page-fade-in">
-        <section className="contact-hero">
-          <div className="container">
+        <section className="contact-hero hero-with-bg">
+          <div className="hero-bg">
+            <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&q=80&w=1600" alt="Luxury Concierge" />
+            <div className="hero-overlay-dark"></div>
+          </div>
+          <div className="container hero-content-rel">
             <span className="badge-gold" data-aos="fade-down">Concierge Services</span>
             <h1 data-aos="fade-up">Get in <span className="text-gold">Touch</span></h1>
             <p data-aos="fade-up" data-aos-delay="200">Our expert advisors are available 24/7 to assist with your global property requirements.</p>

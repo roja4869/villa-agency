@@ -1,11 +1,12 @@
 /* About Hero */
 .about-hero {
-  height: 60vh;
+  min-height: 70vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-top: 120px;
 }
 
 .about-hero-bg {

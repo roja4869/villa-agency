@@ -1,9 +1,11 @@
 import React from 'react';
 import PageWrapper from '../components/PageWrapper';
 import { Layout, Waves, Cpu, Shield, Car, Headphones, Paintbrush, Wifi, Key, Wine, Coffee, Utensils } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './Services.css';
 
 const Services = () => {
+  const navigate = useNavigate();
   const services = [
     { icon: <Paintbrush />, title: "Interior Design", desc: "Expert interior designers to customize your villa to your personal taste and lifestyle." },
     { icon: <Waves />, title: "Infinity Pools", desc: "Crystal clear infinity pools with regular maintenance and automated heating systems." },
@@ -18,8 +20,12 @@ const Services = () => {
   return (
     <PageWrapper>
       <div className="services-page page-fade-in">
-        <section className="services-hero">
-          <div className="container">
+        <section className="services-hero hero-with-bg">
+          <div className="hero-bg">
+            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=1600" alt="Luxury Services" />
+            <div className="hero-overlay-dark"></div>
+          </div>
+          <div className="container hero-content-rel">
             <span className="badge-gold" data-aos="fade-down">Bespoke Excellence</span>
             <h1 data-aos="fade-up">Exceptional <span className="text-gold">Services</span></h1>
             <p data-aos="fade-up" data-aos-delay="200">We provide more than just a home; we provide an elevated lifestyle curated for the world's most discerning individuals.</p>
@@ -35,7 +41,7 @@ const Services = () => {
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
-                <div className="service-hover-content">
+                <div className="service-hover-content" onClick={() => navigate('/contact')}>
                   <span>Learn More</span>
                 </div>
               </div>
@@ -47,7 +53,7 @@ const Services = () => {
           <div className="bespoke-content glass" data-aos="zoom-in">
             <h2>Bespoke Requirements?</h2>
             <p>Our dedicated team is ready to accommodate any special requests, from private aviation to specialized event planning.</p>
-            <button className="btn-gold">Consult Our Team</button>
+            <button className="btn-gold" onClick={() => navigate('/contact')}>Consult Our Team</button>
           </div>
         </section>
       </div>

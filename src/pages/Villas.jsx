@@ -43,8 +43,12 @@ const Villas = () => {
   return (
     <PageWrapper>
       <div className="villas-page page-fade-in">
-        <section className="villas-hero">
-          <div className="container">
+        <section className="villas-hero hero-with-bg">
+          <div className="hero-bg">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1600" alt="Luxury Villas" />
+            <div className="hero-overlay-dark"></div>
+          </div>
+          <div className="container hero-content-rel">
             <span className="badge-gold" data-aos="fade-down">Our Collection</span>
             <h1 data-aos="fade-up">Find Your Perfect <br /><span className="text-gold">Sanctuary</span></h1>
             <p data-aos="fade-up" data-aos-delay="200">Explore our handpicked selection of the world's most extraordinary properties.</p>

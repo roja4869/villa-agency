@@ -40,12 +40,12 @@ const Home = () => {
     <PageWrapper>
       <div className="home-page page-fade-in">
         {/* Hero Section */}
-        <section className="hero">
+        <section className="hero hero-with-bg">
           <div className="hero-bg">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600" alt="Luxury Villa" />
-            <div className="hero-overlay"></div>
+            <div className="hero-overlay-dark"></div>
           </div>
-          <div className="hero-content container">
+          <div className="hero-content hero-content-rel container">
             <span className="badge-gold" data-aos="fade-down">Premium Real Estate</span>
             <h1 data-aos="fade-up">Find Your Dream <br /><span className="text-gold">Luxury Villa</span></h1>
             <p data-aos="fade-up" data-aos-delay="200">

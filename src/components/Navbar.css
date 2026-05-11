@@ -8,12 +8,13 @@
   display: flex;
   align-items: center;
   transition: var(--transition);
-  background: transparent;
+  background: var(--primary); /* Solid background for consistent contrast */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.scrolled {
   height: 80px;
-  background: rgba(7, 23, 57, 0.9);
+  background: rgba(7, 23, 57, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }

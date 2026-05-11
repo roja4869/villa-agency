@@ -3,9 +3,12 @@
 }
 
 .gallery-hero {
-  padding: 180px 0 100px;
+  padding: 200px 0 100px;
   background: var(--primary);
   text-align: center;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
 }
 
 .gallery-hero h1 {
@@ -22,31 +25,34 @@
 }
 
 .gallery-grid-container {
-  padding: 100px 0;
+  padding: 60px 0 120px;
 }
 
 .masonry-gallery {
-  column-count: 3;
-  column-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
 .masonry-card {
-  break-inside: avoid;
-  margin-bottom: 30px;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: var(--shadow-soft);
-  transition: var(--transition);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .masonry-img-wrapper {
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .masonry-img-wrapper img {
   width: 100%;
+  height: 400px;
+  object-fit: cover;
   display: block;
   transition: transform 0.6s ease;
 }
@@ -57,28 +63,35 @@
 
 .masonry-overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: rgba(7, 23, 57, 0.7);
+  padding: 40px 20px 20px;
+  background: linear-gradient(transparent, rgba(7, 23, 57, 0.9));
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
+  justify-content: flex-end;
+  opacity: 1; /* Always visible for better UX */
   transition: var(--transition);
   color: var(--white);
 }
 
 .masonry-card:hover .masonry-overlay {
-  opacity: 1;
+  background: linear-gradient(transparent, rgba(7, 23, 57, 1));
 }
 
 .masonry-overlay h4 {
-  margin-top: 15px;
+  margin-top: 10px;
   color: var(--white);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.masonry-overlay svg {
+  margin-bottom: 5px;
+  opacity: 0.7;
 }
 
 /* Lightbox */
@@ -128,9 +141,9 @@
 }
 
 @media (max-width: 992px) {
-  .masonry-gallery { column-count: 2; }
+  .masonry-gallery { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 576px) {
-  .masonry-gallery { column-count: 1; }
+  .masonry-gallery { grid-template-columns: 1fr; }
 }
