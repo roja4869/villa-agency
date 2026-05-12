@@ -31,7 +31,7 @@
 
 .main-testimonial-card {
   background: white !important;
-  padding: 80px;
+  padding: 60px 40px;
   border-radius: 30px;
   box-shadow: var(--shadow-premium);
   position: relative;
@@ -60,10 +60,10 @@
 
 .testimonial-text {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  line-height: 1.5;
+  font-size: 1.8rem;
+  line-height: 1.4;
   color: var(--primary);
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-style: italic;
 }
 
@@ -75,11 +75,11 @@
 }
 
 .author-img-wrapper {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid var(--accent);
+  border: 2px solid var(--accent);
 }
 
 .author-img-wrapper img {
@@ -156,7 +156,7 @@
 
 .luxury-review-card {
   background: white;
-  padding: 40px;
+  padding: 30px;
   border-radius: 20px;
   box-shadow: var(--shadow-soft);
   transition: var(--transition);
@@ -186,8 +186,8 @@
 }
 
 .card-author img {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   object-fit: cover;
 }

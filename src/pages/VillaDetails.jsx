@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PageWrapper from '../components/PageWrapper';
 import { useParams } from 'react-router-dom';
 import { MapPin, Star, Bed, Bath, Maximize, CheckCircle, Wifi, Coffee, Car, Shield, Calendar, Users, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './VillaDetails.css';
 
 const VillaDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const galleryRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: galleryRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   const [villa, setVilla] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -42,32 +51,59 @@ const VillaDetails = () => {
       });
   }, [id]);
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.1 },
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+  };
+
   if (loading) return <div className="loader-container"><div className="luxury-spinner"></div></div>;
   if (!villa) return <div className="error-container"><h2>Villa not found</h2><button className="btn-gold" onClick={() => navigate('/villas')}>Back to Villas</button></div>;
 
   return (
     <PageWrapper>
       <div className="villa-details-page page-fade-in">
-        <section className="villa-gallery-section">
+        <section ref={galleryRef} className="villa-gallery-section">
           <div className="container">
-            <button className="back-link" onClick={() => navigate('/villas')}>
+            <motion.button 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="back-link" 
+              onClick={() => navigate('/villas')}
+            >
               <ArrowLeft size={18} /> Back to Collection
-            </button>
+            </motion.button>
             <div className="gallery-grid">
-              <div className="gallery-main" data-aos="fade-right">
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                className="gallery-main"
+                style={{ y }}
+              >
                 <img src={villa.images[0]} alt={villa.name} />
-              </div>
-              <div className="gallery-side" data-aos="fade-left">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                className="gallery-side"
+              >
                 <div className="side-img"><img src={villa.images[1]} alt="Interior" /></div>
                 <div className="side-img"><img src={villa.images[2]} alt="Pool" /></div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         <section className="villa-content-section container">
           <div className="villa-main-grid">
-            <div className="villa-details-info" data-aos="fade-up">
+            <motion.div 
+              {...fadeInUp}
+              className="villa-details-info"
+            >
               <div className="villa-header">
                 <span className="badge-gold">Exclusive Property</span>
                 <div className="title-row">
@@ -78,34 +114,24 @@ const VillaDetails = () => {
               </div>
 
               <div className="villa-quick-specs">
-                <div className="spec-item">
-                  <Bed size={24} />
-                  <div>
-                    <label>Bedrooms</label>
-                    <span>{villa.beds} Beds</span>
-                  </div>
-                </div>
-                <div className="spec-item">
-                  <Bath size={24} />
-                  <div>
-                    <label>Bathrooms</label>
-                    <span>{villa.baths} Baths</span>
-                  </div>
-                </div>
-                <div className="spec-item">
-                  <Maximize size={24} />
-                  <div>
-                    <label>Villa Size</label>
-                    <span>{villa.size}</span>
-                  </div>
-                </div>
-                <div className="spec-item">
-                  <Star size={24} color="var(--primary)" />
-                  <div>
-                    <label>Rating</label>
-                    <span>{villa.rating} (120+ Reviews)</span>
-                  </div>
-                </div>
+                {[
+                  { icon: <Bed size={24} />, label: "Bedrooms", value: `${villa.beds} Beds` },
+                  { icon: <Bath size={24} />, label: "Bathrooms", value: `${villa.baths} Baths` },
+                  { icon: <Maximize size={24} />, label: "Villa Size", value: villa.size },
+                  { icon: <Star size={24} color="var(--primary)" />, label: "Rating", value: `${villa.rating} (120+ Reviews)` }
+                ].map((spec, i) => (
+                  <motion.div 
+                    key={i}
+                    whileHover={{ y: -10, transition: { duration: 0.5 } }}
+                    className="spec-item"
+                  >
+                    {spec.icon}
+                    <div>
+                      <label>{spec.label}</label>
+                      <span>{spec.value}</span>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
 
               <div className="detail-block">
@@ -117,10 +143,17 @@ const VillaDetails = () => {
                 <h3>Premium Amenities</h3>
                 <div className="amenities-grid">
                   {villa.amenities.map((item, idx) => (
-                    <div key={idx} className="amenity-card">
+                    <motion.div 
+                      key={idx} 
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1, duration: 0.8, ease: "easeOut" }}
+                      className="amenity-card"
+                    >
                       <CheckCircle size={20} color="var(--primary)" />
                       <span>{item}</span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
@@ -134,10 +167,16 @@ const VillaDetails = () => {
                   </iframe>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             <aside className="villa-booking-sidebar">
-              <div className="booking-card-premium glass" data-aos="fade-left">
+              <motion.div 
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="booking-card-premium glass"
+              >
                 <h3>Secure Your Stay</h3>
                 <p>Reserve this exclusive property today.</p>
                 <form className="booking-form-premium" onSubmit={(e) => {
@@ -180,7 +219,7 @@ const VillaDetails = () => {
                   <button type="submit" className="btn-gold w-full">Request Booking</button>
                   <p className="booking-note"><Shield size={12} /> Secure payments & luxury guarantee.</p>
                 </form>
-              </div>
+              </motion.div>
             </aside>
           </div>
         </section>

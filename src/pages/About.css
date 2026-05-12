@@ -1,12 +1,12 @@
 /* About Hero */
 .about-hero {
-  min-height: 70vh;
+  min-height: 50vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 120px;
+  padding-top: 80px;
 }
 
 .about-hero-bg {
@@ -34,9 +34,10 @@
 }
 
 .about-hero-content h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: var(--white);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  line-height: 1;
 }
 
 .about-hero-content .text-gold {
@@ -176,7 +177,29 @@
 }
 
 .team-img-wrapper {
-  height: 400px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.team-circle-wrap {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  padding: 10px;
+  background: var(--grad-gold);
+  position: relative;
+  box-shadow: var(--shadow-gold);
+}
+
+.team-circle-wrap .reveal-scale-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--primary-light);
+  overflow: hidden;
 }
 
 .team-img-wrapper img {

@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PageWrapper from '../components/PageWrapper';
 import { Calendar, Users, Home, CreditCard, Shield, CheckCircle } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './Booking.css';
 
 const Booking = () => {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   const [formData, setFormData] = useState({
     villa: '',
     checkIn: '',
@@ -27,24 +37,62 @@ const Booking = () => {
     alert("Booking request submitted! Our luxury concierge will contact you within the hour to finalize your reservation.");
   };
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.1 },
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+  };
+
   return (
     <PageWrapper>
       <div className="booking-page page-fade-in">
-        <section className="booking-hero hero-with-bg">
-          <div className="hero-bg">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600" alt="Booking Background" />
+        <section ref={heroRef} className="booking-hero hero-with-bg">
+          <motion.div style={{ y }} className="hero-bg">
+            <motion.img 
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600" 
+              alt="Booking Background" 
+            />
             <div className="hero-overlay-dark"></div>
-          </div>
-          <div className="container hero-content-rel">
-            <span className="badge-gold" data-aos="fade-down">Reservations</span>
-            <h1 data-aos="fade-up">Book Your <span className="text-gold">Stay</span></h1>
-            <p data-aos="fade-up" data-aos-delay="200">Secure your place in paradise. Experience the world's most exclusive properties.</p>
-          </div>
+          </motion.div>
+          <motion.div style={{ opacity }} className="container hero-content-rel">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="badge-gold"
+            >
+              Reservations
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.5 }}
+            >
+              Book Your <span className="text-gold">Stay</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.7 }}
+            >
+              Secure your place in paradise. Experience the world's most exclusive properties.
+            </motion.p>
+          </motion.div>
         </section>
 
         <section className="booking-content container">
           <div className="booking-grid">
-            <div className="booking-form-container glass" data-aos="fade-right">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="booking-form-container glass"
+            >
               <h3>Reservation Details</h3>
               <form onSubmit={handleSubmit} className="premium-form">
                 <div className="form-group">
@@ -113,9 +161,15 @@ const Booking = () => {
                 <button type="submit" className="btn-gold w-full mt-2">Confirm Reservation</button>
                 <p className="secure-note"><Shield size={12} /> Your payment information is encrypted and secure.</p>
               </form>
-            </div>
+            </motion.div>
 
-            <aside className="booking-summary-container" data-aos="fade-left">
+            <motion.aside 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="booking-summary-container"
+            >
               <div className="summary-card glass">
                 <h4>Booking Summary</h4>
                 <div className="summary-details">
@@ -152,7 +206,7 @@ const Booking = () => {
                   <div className="benefit"><CheckCircle size={14} /> Flexible Cancellation</div>
                 </div>
               </div>
-            </aside>
+            </motion.aside>
           </div>
         </section>
       </div>

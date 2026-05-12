@@ -3,18 +3,19 @@
 }
 
 .services-hero {
-  padding: 200px 0 120px;
+  padding: 120px 0 80px;
   background: var(--primary);
   text-align: center;
-  min-height: 50vh;
+  min-height: 40vh;
   display: flex;
   align-items: center;
 }
 
 .services-hero h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: var(--white);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  line-height: 1;
 }
 
 .services-hero p {
@@ -25,7 +26,7 @@
 }
 
 .services-grid-container {
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
 .services-grid {
@@ -108,7 +109,7 @@
 
 .bespoke-content {
   background: var(--primary) !important;
-  padding: 80px;
+  padding: 50px;
   border-radius: 30px;
   text-align: center;
   color: var(--white);

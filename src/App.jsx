@@ -12,37 +12,30 @@ import Gallery from './pages/Gallery';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 import Booking from './pages/Booking';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 function App() {
   const location = useLocation();
 
-  React.useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-    });
-  }, []);
-
   return (
-    <>
+    <div className="app-layout">
       <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/villas" element={<Villas />} />
-          <Route path="/villa-details/:id" element={<VillaDetails />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/book-now" element={<Booking />} />
-        </Routes>
-      </AnimatePresence>
+      <main className="main-content">
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/villas" element={<Villas />} />
+            <Route path="/villa-details/:id" element={<VillaDetails />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/book-now" element={<Booking />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

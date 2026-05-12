@@ -1,11 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PageWrapper from '../components/PageWrapper';
-import { MapPin, Star, Filter, Search, Heart, SlidersHorizontal } from 'lucide-react';
+import { MapPin, Star, Filter, Search, Heart, SlidersHorizontal, Sparkles, Building2, Palmtree } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './Villas.css';
+
+// Word-by-word reveal helper
+const WordReveal = ({ text, delay = 0 }) => {
+  const words = text.split(' ');
+  return (
+    <span className="text-reveal-mask">
+      {words.map((word, i) => (
+        <span key={i} style={{ display: 'inline-block', marginRight: '0.12em', overflow: 'hidden' }}>
+          <motion.span
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{ 
+              duration: 1, 
+              delay: delay + (i * 0.1), 
+              ease: [0.16, 1, 0.3, 1] 
+            }}
+            style={{ display: 'inline-block' }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </span>
+  );
+};
+
+import { MagneticButton, TiltCard } from '../components/PremiumInteractions';
 
 const Villas = () => {
   const navigate = useNavigate();
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.15, 1]);
+
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
   const [villas, setVillas] = useState([]);
@@ -20,7 +58,6 @@ const Villas = () => {
       })
       .catch(err => {
         console.error("Error fetching villas:", err);
-        // Fallback data if backend is down for preview
         setVillas([
           { id: 1, name: "Ocean View Paradise", location: "Malibu, California", price: "$1,200", rating: 4.9, category: "Beachfront", images: ["https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1200"] },
           { id: 2, name: "Mountain Retreat", location: "Aspen, Colorado", price: "$950", rating: 4.8, category: "Mountain", images: ["https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1200"] },
@@ -40,34 +77,71 @@ const Villas = () => {
     return matchesFilter && matchesSearch;
   });
 
+  const staggerContainer = {
+    initial: {},
+    whileInView: {
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
   return (
     <PageWrapper>
-      <div className="villas-page page-fade-in">
-        <section className="villas-hero hero-with-bg">
-          <div className="hero-bg">
-            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1600" alt="Luxury Villas" />
+      <div className="villas-page">
+        {/* Cinematic Hero */}
+        <section ref={heroRef} className="villas-hero hero-with-bg">
+          <motion.div style={{ y, scale }} className="hero-bg">
+            <img 
+              src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=1600" 
+              alt="Luxury Villas" 
+            />
             <div className="hero-overlay-dark"></div>
-          </div>
-          <div className="container hero-content-rel">
-            <span className="badge-gold" data-aos="fade-down">Our Collection</span>
-            <h1 data-aos="fade-up">Find Your Perfect <br /><span className="text-gold">Sanctuary</span></h1>
-            <p data-aos="fade-up" data-aos-delay="200">Explore our handpicked selection of the world's most extraordinary properties.</p>
-          </div>
+          </motion.div>
+          <motion.div style={{ opacity }} className="container hero-content-rel">
+            <motion.div
+              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0)' }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="animate-float"
+            >
+              <span className="badge-gold">Curated Collection</span>
+            </motion.div>
+            <h1>
+              <WordReveal text="Explore Your Next" delay={0.4} />
+              <br />
+              <span className="text-gold">
+                <WordReveal text="Coastal Escape" delay={0.7} />
+              </span>
+            </h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0)' }}
+              transition={{ duration: 1.2, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              A distinguished portfolio of the most exclusive properties in the world's most desired locations.
+            </motion.p>
+          </motion.div>
         </section>
 
         <section className="villas-container container">
-          <div className="villas-controls glass" data-aos="fade-up">
+          <motion.div 
+            initial={{ opacity: 0, y: 40, filter: 'blur(20px)' }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0)' }}
+            transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="villas-controls glass-dark"
+          >
             <div className="search-bar">
-              <Search size={20} color="var(--primary)" />
+              <Search size={20} color="var(--accent)" />
               <input 
                 type="text" 
-                placeholder="Search by name or location..." 
+                placeholder="Search estates or locations..." 
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
             <div className="filter-group">
-              <SlidersHorizontal size={20} color="var(--primary)" />
+              <SlidersHorizontal size={20} color="var(--accent)" />
               <div className="category-tabs">
                 {categories.map(cat => (
                   <button 
@@ -80,51 +154,78 @@ const Villas = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {loading ? (
             <div className="villas-loader">
               <div className="luxury-spinner"></div>
-              <p>Curating properties...</p>
+              <p>Curating portfolio...</p>
             </div>
           ) : (
-            <div className="villas-grid">
-              {filteredVillas.map((villa, index) => (
-                <div 
-                  key={villa.id} 
-                  className="villa-card" 
-                  data-aos="fade-up" 
-                  data-aos-delay={(index % 3) * 100}
-                >
-                  <div className="villa-img" onClick={() => navigate(`/villa-details/${villa.id}`)}>
-                    <img src={villa.images[0]} alt={villa.name} />
-                    <div className="villa-badge">{villa.category}</div>
-                    <button className="heart-btn" onClick={(e) => {e.stopPropagation();}}><Heart size={18} /></button>
-                  </div>
-                  <div className="villa-content">
-                    <div className="villa-header">
-                      <div className="villa-rating">
-                        <Star size={14} fill="var(--primary)" color="var(--primary)" />
-                        <span>{villa.rating}</span>
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={{ once: true, amount: 0.05 }}
+              className="villas-grid"
+            >
+              {filteredVillas.map((villa) => (
+                <TiltCard key={villa.id}>
+                  <motion.div 
+                    variants={{
+                      initial: { opacity: 0, scale: 0.9, y: 40, filter: 'blur(10px)' },
+                      whileInView: { opacity: 1, scale: 1, y: 0, filter: 'blur(0)', transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                    }}
+                    className="villa-card premium-card-hover"
+                  >
+                    <div className="villa-img" onClick={() => navigate(`/villa-details/${villa.id}`)}>
+                      <div className="reveal-scale-container">
+                        <motion.img 
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                          src={villa.images[0]} 
+                          alt={villa.name} 
+                          className="reveal-scale-img"
+                        />
                       </div>
-                      <span className="villa-price">{villa.price}<span>/night</span></span>
+                      <div className="villa-badge glass">{villa.category}</div>
+                      <motion.button whileHover={{ scale: 1.1 }} className="heart-btn glass" onClick={(e) => {e.stopPropagation();}}><Heart size={18} /></motion.button>
                     </div>
-                    <h3 onClick={() => navigate(`/villa-details/${villa.id}`)}>{villa.name}</h3>
-                    <p><MapPin size={14} /> {villa.location}</p>
-                    <div className="villa-footer">
-                      <button className="btn-gold" onClick={() => navigate(`/villa-details/${villa.id}`)}>View Details</button>
+                    <div className="villa-content">
+                      <div className="villa-header">
+                        <div className="villa-rating">
+                          <Star size={14} fill="var(--accent)" color="var(--accent)" />
+                          <span>{villa.rating}</span>
+                        </div>
+                        <span className="villa-price">{villa.price}<span> / night</span></span>
+                      </div>
+                      <h3 onClick={() => navigate(`/villa-details/${villa.id}`)}>{villa.name}</h3>
+                      <p><MapPin size={14} color="var(--accent)" /> {villa.location}</p>
+                      <div className="villa-footer">
+                        <MagneticButton>
+                          <motion.button 
+                            whileHover={{ scale: 1.05 }}
+                            className="btn-gold btn-glow" 
+                            onClick={() => navigate(`/villa-details/${villa.id}`)}
+                          >
+                            View Details
+                          </motion.button>
+                        </MagneticButton>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </TiltCard>
               ))}
-            </div>
+            </motion.div>
           )}
 
           {!loading && filteredVillas.length === 0 && (
             <div className="no-results">
-              <h3>No properties found</h3>
-              <p>Try adjusting your search or filters to find your dream villa.</p>
-              <button className="btn-outline" onClick={() => {setFilter('All'); setSearch('');}}>Clear All Filters</button>
+              <h3>No estates found</h3>
+              <p>Adjust your refined search to find your perfect sanctuary.</p>
+              <MagneticButton>
+                <button className="btn-gold btn-glow" onClick={() => {setFilter('All'); setSearch('');}}>Reset Filters</button>
+              </MagneticButton>
             </div>
           )}
         </section>
@@ -132,5 +233,7 @@ const Villas = () => {
     </PageWrapper>
   );
 };
+
+
 
 export default Villas;

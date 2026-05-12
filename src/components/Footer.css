@@ -4,7 +4,9 @@
   padding: 100px 0 30px;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
+
 
 .footer::before {
   content: '';
